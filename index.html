@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToDoer</title>
+
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="style.css" type="text/css" rel="stylesheet">
+  
+  
+</head>
+<body>
+  <nav class="side-nav">
+    <header class="nav-header">
+      <div class="logo">
+        <i class='bx bx-check-double logo-icon'></i>
+        <span class="header">Todoer</span>
+      </div>
+      <i class='bx bx-menu hamburger-btn' id="hamburger-btn"></i>
+    </header>
+    <ul class="nav-links">
+      <li class="nav-link">
+        <div class="nav-item-container" id="nav-today">
+          <i class='bx bx-calendar-check nav-icon'></i>
+          <span class="nav-item">Today</span>
+        </div>
+        <span class="tooltip">Today</span>
+      </li>
+      <li class="nav-link">
+        <div class="nav-item-container" id="nav-week">
+          <i class='bx bxs-calendar-week nav-icon'></i>
+          <span class="nav-item">Week</span>
+        </div>
+        <span class="tooltip">Week</span>
+      </li>
+      <li class="nav-link">
+        <div class="nav-item-container" id="nav-projects">
+          <i class='bx bxs-grid-alt nav-icon'></i>
+          <span class="nav-item">Projects</span>
+        </div>
+        <span class="tooltip">Projects</span>
+      </li>
+      <li class="nav-link">
+        <div class="nav-item-container" id="nav-new-project">
+          <i class='bx bxs-folder-plus nav-icon'></i>
+          <span class="nav-item">New Project</span>
+        </div>
+        <span class="tooltip">New Project</span>
+      </li>
+    </ul>
+  </nav>
+  <div class="content" id="content-container">
+    <!-- PROJECTS SECTION -->
+    <!-- <div class="projects-container">
+      <h1 class="projects-title">Your Projects</h1>
+      <div class="card-container">
+        <div class="project-card create">
+          <h2 class="create-project title">New Project<i class='bx bx-plus new-project-icon'></i></h2>
+        </div>
+        <div class="project-card">
+          <h2 class="project-card-title">New Project very large project title very very large project title too large for the container</h2>
+        </div>
+      </div>
+    </div> -->
+  </div>
+  <!-- <div class="project-module">
+    <i class='bx bxs-x-circle modal-exit'></i>
+    <h2 class="module-title">Create Your Project</h2>
+    <form id="project-form" class="project-form">
+      <input class="form-title project" type="text" name="title" placeholder="Project title" required/>
+      <input class="form-submit project" type="submit" value="Create Project"/>
+    </form>
+  </div> -->
+  <script src="main.js" type="module"></script>
+</body>
+</html>

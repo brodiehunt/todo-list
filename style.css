@@ -1,0 +1,531 @@
+/* Mobile designs */
+:root {
+  --placeHolder: rgba(0, 38, 61, 0.6);
+  --input: rgba(0, 38, 61, 0.8);
+  --main-900: hwb(203 0% 76%);
+  --main-800: hwb(203 2% 64%);
+  --main-700: hwb(203 4% 50%);
+  --main-600: hwb(203 6% 37%);
+  --main-500: hwb(203 10% 23%);
+  --main-400: hwb(203 29% 16%);
+  --main-300: hwb(203 49% 11%);
+  --main-200: hwb(203 68% 6%);
+  --main-100: hwb(203 86% 3%);
+  --main-20: hwb(203 95% 0%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--main-900);
+}
+
+/* Nav bar */
+
+.side-nav {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  height: 100vh;
+  width: 80px;
+  padding: 0.5rem;
+  background-color: var(--main-100);
+  color: var(--main-color-1);
+  transition: all 0.4s ease;
+}
+
+.logo {
+  display: none;
+  align-items: center;
+}
+
+.logo-icon {
+  font-size: 45px;
+  
+}
+
+.header {
+  font-size: 1.7rem;
+  margin-left: 10px;
+}
+
+
+
+.side-nav.active {
+  width: 250px;
+  z-index: 2;
+}
+
+.content {
+  position: absolute;
+  height: 100vh;
+  overflow-y: scroll;
+  padding: 1rem;
+  left: 80px;
+  width: calc(100% - 80px);
+  transition: all 0.4s ease;
+  background-color: var(--main-20);
+}
+
+.side-nav #hamburger-btn {
+  display: block;
+  font-size: 45px;
+  text-align: center;
+  transition: 0.2s all ease-in;
+}
+
+.side-nav #hamburger-btn:hover {
+  cursor: pointer;
+  background-color: var(--main-200);
+}
+
+.nav-links {
+  margin-top: 50px;
+  transition: 0.8s all ease;
+}
+
+.nav-link {
+  position: relative;
+  border-radius: 5px;
+  transition: 0.2s all ease-in;
+}
+
+.nav-item-container {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.nav-item {
+  display: none;
+}
+
+.tooltip {
+  position: absolute;
+  display: block;
+  visibility: hidden;
+  width: 80px;
+  padding: 0.8rem 0.5rem;
+  top: 50%;
+  right: -150%;
+  background-color: whitesmoke;
+  color: #1D2125;
+  border-radius: 20px;
+  transform: translateY(-50%);
+}
+
+.nav-icon {
+  font-size: 45px;
+}
+
+.nav-link:hover {
+  background-color:  var(--main-200);
+  cursor: pointer;
+}
+
+.nav-link:hover .tooltip {
+  visibility: visible;
+  z-index: 10;
+  color: #B6C2CF;
+  background-color: #22272B;
+}
+
+/* nav active styles */
+
+.side-nav.active #hamburger-btn {
+  position: absolute; 
+  top: 10px;
+  right: 10px;
+}
+
+.side-nav.active .logo {
+  display: flex;
+}
+
+.side-nav.active .nav-item-container {
+  justify-content: start;
+  align-items: center;
+}
+
+.side-nav.active .nav-item {
+  display: block;
+  margin-left: 10px;
+  font-size: 1.2rem;
+}
+
+.side-nav.active .tooltip {
+  display: none;
+}
+
+/* Projects styles */
+
+.card-container {
+  display: grid;
+  grid-gap: 2em;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  margin-top: 2em;
+}
+
+.project-card {
+  background-color: whitesmoke;
+  padding: 1rem;
+  height: 150px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: 0.2s all ease-in;
+}
+
+.project-card:hover {
+  box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
+}
+
+.project-card-title {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.create-project.title {
+  display: flex;
+  align-items: center;
+}
+
+.new-project-icon {
+  padding-left: 10px;
+}
+
+
+
+
+
+/* Create Project module */
+
+.project-modal {
+  width: 80%;
+  max-width: 600px;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
+  color: var(--main-900);
+  background-color: white;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2em;
+
+}
+
+.modal-exit {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px;
+  font-size: 25px;
+  cursor: pointer;
+  color: var(--main-500);
+}
+
+.project-form {
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.project-form label {
+  padding: 0.25rem;
+}
+
+.project.form-title {
+  all: unset;
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.5rem 0.3rem;
+  border-bottom: 2px solid var(--main-900);
+  color: var(--input);
+  transition: all 0.2s ease;
+}
+
+.project.form-title:focus {
+  border-color: var(--main-500);
+  background-color: var(--main-20);
+}
+
+::placeholder {
+  color: var(--placeHolder);
+
+}
+
+.project.form-submit {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: var(--main-800);
+  cursor: pointer;
+  transition: 0.3s ease all;
+}
+
+.project.form-submit:hover {
+  background-color: var(--main-500);
+}
+
+/* individual Project styles */
+.project-title {
+  padding: 1rem 0;
+  border-bottom: 1px black solid;
+}
+
+.new-todo-container {
+  display: flex;
+  align-items: end;
+  font-size: 1.3rem;
+  padding: 1em 0;
+}
+
+.new-todo-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  background-color: var(--main-800);
+  cursor: pointer;
+  transition: 0.3s ease all;
+}
+
+.new-todo-btn:hover {
+  background-color: var(--main-500);
+}
+
+.new-todo-btn .icon {
+  color: white;
+  
+}
+.new-todo-btn span {
+  color: white;
+}
+
+/* Todo styles */
+
+.todo-container {
+  display: grid;
+  grid-template-columns: 20px 1fr 20px;
+  grid-gap: 5px;
+  margin-top: 1em;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: white;
+  transition: 0.3s all;
+}
+
+.todo-container:hover {
+  box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
+}
+
+.todo-check-container {
+  display: flex; 
+  justify-content: left;
+  align-items: center;
+}
+
+.todo-container .todo-checkbox {
+  cursor: pointer;
+}
+
+.todo-container .text-container {
+  cursor: pointer;
+  transition: 0.2s all;
+}
+
+.todo-container .text-container p {
+  margin-top: 0.2rem;
+}
+
+.todo-container .text-container span {
+  font-size: 0.8rem;
+  color: var(--placeHolder);
+}
+
+.todo-container .todo-trash {
+  cursor: pointer;
+  color: var(--main-500);
+  transition: 0.2s all ease;
+}
+
+.todo-container .todo-trash:hover {
+  transform: scale(1.2);
+}
+
+.delete-todo-container {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+/* Todo Modal */
+.todo-modal {
+  width: 80%;
+  max-width: 600px;
+  position: absolute;
+  border-radius: 10px;
+  box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
+  color: var(--main-900);
+  background-color: white;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2em;
+}
+
+.todo-modal .new-todo-form {
+  margin-top: 20px;
+}
+
+.todo-modal .input-container {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.todo-modal .unset {
+  all: unset;
+}
+
+.todo-modal .form-control {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1rem;
+  padding: 0.5rem 0.3rem;
+  border-bottom: 2px solid var(--main-900);
+  color: var(--input);
+  transition: all 0.2s ease;
+}
+
+.todo-modal .form-control:focus {
+  border-color: var(--main-500);
+  background-color: var(--main-20);
+}
+
+.todo-modal .priority-input {
+  border: none;
+  outline: none;  
+  border-bottom: 2px solid var(--main-900);
+  
+}
+
+.todo-modal label {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.todo-modal .form-submit {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  background-color: var(--main-800);
+  cursor: pointer;
+  transition: 0.3s ease all;
+}
+
+.todo-modal .form-submit:hover {
+  background-color: var(--main-500);
+}
+
+
+/* Todo expanded View modal */
+/* .todo-modal {
+  width: 80%;
+  max-width: 600px;
+  position: absolute;
+  color: #2C333A;
+  background-color: #B6C2CF;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 3em 2em;
+
+} */
+
+/* checklist styles */
+.checkitem-container {
+  display: grid;
+  grid-template-columns: 20px 1fr 20px;
+  grid-gap: 5px;
+  margin-top: 1em;
+  padding: 1rem;
+  background-color: whitesmoke;
+  transition: 0.3s all;
+}
+
+.checkitem-check-container {
+  display: flex; 
+  justify-content: left;
+  align-items: center;
+}
+
+.delete-checkitem-container {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.checkitem-trash {
+  color: var(--main-500);
+}
+
+/* tablet designs */
+@media only screen and (min-width: 768px) {
+
+  .side-nav.active ~ .content {
+    position: absolute;
+    left: 250px;
+    width: calc(100% - 250px);
+  }
+
+  .side-nav.active {
+    z-index: 0;
+  }
+
+  .todo-container {
+    grid-template-columns: 40px 1fr 40px;
+  }
+
+  .todo-container .todo-checkbox {
+    width: 30px;
+    height: 30px;
+    
+  }
+
+  .todo-container .todo-trash {
+    font-size: 30px;
+  }
+
+  /* Individual Project styles */
+
+  .page-title {
+    font-size: 3rem;
+  }
+
+  .todo-modal .column-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+
+}
+
+/* laptop designs */
+@media only screen and (min-width: 1024px) {
+
+}
